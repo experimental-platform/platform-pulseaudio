@@ -11,7 +11,8 @@ RUN apt-get update && apt-get install -y \
 	&& rm -rf /var/lib/apt/lists/*
 
 ENV HOME /home/pulseaudio
-RUN useradd --create-home --home-dir $HOME pulseaudio \
+# IMPORTANT: const uid 35234 needs to be the owner of host-mounted socket directory
+RUN useradd --create-home --home-dir $HOME pulseaudio -u 35234 \
 	&& usermod -aG audio,pulse,pulse-access pulseaudio \
 	&& mkdir -p $HOME/socket-directory \
 	&& chown -R pulseaudio:pulseaudio $HOME
