@@ -15,6 +15,7 @@ ENV HOME /home/pulseaudio
 RUN useradd --create-home --home-dir $HOME pulseaudio -u 35234 \
 	&& usermod -aG audio,pulse,pulse-access pulseaudio \
 	&& mkdir -p $HOME/socket-directory \
+	&& ln -s $HOME/socket-directory /var/run/pulse \
 	&& chown -R pulseaudio:pulseaudio $HOME
 
 WORKDIR $HOME
