@@ -25,5 +25,7 @@ COPY default.pa /etc/pulse/default.pa
 COPY client.conf /etc/pulse/client.conf
 COPY daemon.conf /etc/pulse/daemon.conf
 
+ENV TERM=xterm
+
 ENTRYPOINT [ "pulseaudio" ]
 CMD [ "--log-level=3" ]
