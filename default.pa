@@ -18,6 +18,9 @@
     load-module module-stream-restore
     load-module module-device-restore
 
+    ### Automatically switch devices on connection/disconnection
+    load-module module-switch-on-connect
+
     ### Automatically restore the default sink/source when changed by the user
     ### during runtime
     ### NOTE: This should be loaded as early as possible so that subsequent modules
