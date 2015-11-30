@@ -12,11 +12,13 @@
     #load-module module-alsa-sink device="default" tsched=1
 
     load-module module-udev-detect
-    load-module module-detect
     
     ### Automatically restore the volume of streams and devices
     load-module module-stream-restore
     load-module module-device-restore
+
+    ### Automatically switch devices on connection/disconnection
+    load-module module-switch-on-connect
 
     ### Automatically restore the default sink/source when changed by the user
     ### during runtime
