@@ -27,5 +27,5 @@ COPY daemon.conf /etc/pulse/daemon.conf
 
 ENV TERM=xterm
 
-ENTRYPOINT [ "pulseaudio" ]
+ENTRYPOINT ["dumb-init", "pulseaudio" ]
 CMD [ "--log-level=3" ]
